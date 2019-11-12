@@ -1,4 +1,13 @@
 package pages;
 
-public class HomePage {
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import util.Util;
+
+public class HomePage extends BasePage{
+
+    public void clickElement(By locator){
+        getClickable(locator).click();
+    }
 }

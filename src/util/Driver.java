@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Driver {
     WebDriver driver;
-
     private static Driver single_instance = null;
 
     // private constructor restricted to this class itself
