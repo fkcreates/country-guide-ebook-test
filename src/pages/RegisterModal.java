@@ -8,4 +8,7 @@ public class RegisterModal extends BasePage {
     @FindBy(xpath = "//input[@name='userName']")
     private WebElement userNameField;
 
+    @FindBy(xpath = "//input[@name='email']")
+    private WebElement emailField;
+
 }
