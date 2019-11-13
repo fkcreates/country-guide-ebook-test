@@ -7,6 +7,9 @@ import util.Util;
 
 public class HomePage extends BasePage{
 
+    @FindBy(xpath = "//div[@class='register-btn']/a")
+    private WebElement registerbtn;
+
     public void clickElement(By locator){
         getClickable(locator).click();
     }
