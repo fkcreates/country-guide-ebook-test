@@ -14,7 +14,6 @@ public class Wait extends WebDriverWait {
         super(driver, timeOutInSeconds);
     }
 
-    // static method to create instance of Singleton class
     public static Wait getInstance()
     {
         if (single_instance == null)
