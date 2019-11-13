@@ -13,4 +13,8 @@ public class HomePage extends BasePage{
     public void clickElement(By locator){
         getClickable(locator).click();
     }
+
+    public void openRegisterModal(){
+        registerbtn.click();
+    }
 }
