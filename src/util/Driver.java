@@ -6,21 +6,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
-    WebDriver driver;
-    private static Driver single_instance = null;
+    static WebDriver driver;
 
-    private Driver()
-    {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    }
+    public static WebDriver getInstance() {
+        if (driver == null)
+            driver = new ChromeDriver();
+            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-    public static Driver getInstance()
-    {
-        if (single_instance == null)
-            single_instance = new Driver();
-
-        return single_instance;
+        return driver;
     }
 
     public void navigateToUrl(String url) {
