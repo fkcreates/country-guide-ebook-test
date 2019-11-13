@@ -5,6 +5,8 @@ import pages.HomePage;
 
 public class TestRegistration {
 
+    String url = "";
+
     @Test
     void testRegistration(){
         HomePage homePage = new HomePage();
