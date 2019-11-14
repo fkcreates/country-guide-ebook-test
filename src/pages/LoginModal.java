@@ -16,7 +16,7 @@ public class LoginModal extends BasePage{
     private WebElement passwordField;
 
     @FindBy (xpath = "//[@id='content-auth']/form[@class='container']/div[@class='errorMsg']")
-    private WebDriver errorMessage;
+    private WebElement errorMessage;
 
     public LoginModal(){
         super();
