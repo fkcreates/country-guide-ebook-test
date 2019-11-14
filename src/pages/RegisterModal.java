@@ -18,8 +18,8 @@ public class RegisterModal extends BasePage {
     @FindBy(xpath = "//input[@value='Register']")
     private WebElement registerBtn;
 
-    @FindBy(id = "container")
-    private WebElement registerModalWindow;
+    @FindBy(xpath = "//div[@id='basic-navbar-nav']/div/div/a")
+    private WebElement logoutBtn;
 
     private void setUserNameField(String username) {
         userNameField.sendKeys(username);
@@ -45,10 +45,10 @@ public class RegisterModal extends BasePage {
     }
 
     public void waitRegisterModalDisappear(){
-        wait.until(ExpectedConditions.invisibilityOf(registerModalWindow));
+        wait.until(ExpectedConditions.visibilityOf(logoutBtn));
     }
 
     public boolean registerModalDisappears(){
-        return registerModalWindow.isDisplayed();
+        return logoutBtn.isDisplayed();
     }
 }

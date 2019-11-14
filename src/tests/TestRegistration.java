@@ -44,7 +44,7 @@ class TestRegistration {
         homePage.openRegisterModal();
         registerModal.doRegister(usrnm, mail, pwd);
         registerModal.waitRegisterModalDisappear();
-        Assertions.assertFalse(registerModal.registerModalDisappears());
+        Assertions.assertTrue(registerModal.registerModalDisappears());
     }
 
     @AfterEach
