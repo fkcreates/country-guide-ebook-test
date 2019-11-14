@@ -18,19 +18,21 @@ public class LoginModal extends BasePage{
         super();
     }
 
-    public void setUsername(){
-        String username = System.getenv("USERNAME");
-        System.out.println(username);
+    public void setUsername(String username){
         usernameField.sendKeys(username);
     }
 
-    public void setPassword(){
-        String password = System.getenv("PASSWORD");
-        System.out.println(password);
+    public void setPassword(String password){
         passwordField.sendKeys(password);
     }
 
     public void clickOnLoginSumbit(){
         loginSubmit.click();
+    }
+
+    public void doLogin(String username, String password){
+        this.setUsername(username);
+        this.setPassword(password);
+        this.clickOnLoginSumbit();
     }
 }
