@@ -12,7 +12,7 @@ import util.Util;
 
 import java.util.Random;
 
-public class TestRegistration {
+class TestRegistration {
     private Util util = new Util();
     private WebDriver driver = Driver.getInstance();
 
@@ -24,13 +24,13 @@ public class TestRegistration {
     private Random random = new Random();
     private int increment = random.nextInt(10000);
 
-    private String usrnm = System.getenv("USERNAME") + increment;
-    private String mail = increment + System.getenv("EMAIL");
-    private String pwd = System.getenv("PASSWORD");
+    private String usrnm;
+    private String mail;
+    private String pwd;
 
 
     @BeforeEach
-    public void setUp(){
+    void setUp(){
         homePage = new HomePage();
         registerModal = new RegisterModal();
         driver.get(url);
@@ -38,6 +38,9 @@ public class TestRegistration {
 
     @Test
     void testRegistration(){
+        usrnm = System.getenv("USERNAME") + increment;
+        mail = increment + System.getenv("EMAIL");
+        pwd = System.getenv("PASSWORD");
         homePage.openRegisterModal();
         registerModal.doRegister(usrnm, mail, pwd);
         Assertions.assertFalse(registerModal.registerModalDisappears());
