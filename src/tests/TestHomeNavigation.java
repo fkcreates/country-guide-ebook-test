@@ -1,12 +1,11 @@
 package tests;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import pages.LoginModal;
-import util.Driver;
 import util.Util;
 
 public class TestHomeNavigation {
@@ -30,6 +29,8 @@ public class TestHomeNavigation {
         password = System.getenv("PASSWORD");
         home.clickOnLogin();
         loginModal.doLogin(username, password);
+        Assertions.assertTrue(home.logoutBtnAppears());
+        home.clickOnLogout();
     }
 
     @Test

@@ -10,7 +10,7 @@ public class HomePage extends BasePage{
     @FindBy (xpath = "//div[@class='login-btn']")
     private WebElement loginButton;
 
-    @FindBy (xpath = "//[@id='basic-navbar-nav']/div[@class='ml-auto navbar-nav']/div/a[@class='nav-link']")
+    @FindBy (xpath = "//div[@id='basic-navbar-nav']/div[@class='ml-auto navbar-nav']/div/a[@class='nav-link']")
     private WebElement logoutButton;
 
     @FindBy(xpath = "//div[@class='register-btn']/a")
@@ -26,12 +26,16 @@ public class HomePage extends BasePage{
     }
 
     public void openRegisterModal(){
-        registerBtn.click();
+        this.registerBtn.click();
     }
 
     public boolean logoutBtnAppears(){
-        wait.until(ExpectedConditions.visibilityOf(logoutButton));
-        return logoutButton.isDisplayed();
+        wait.until(ExpectedConditions.visibilityOf(this.logoutButton));
+        return this.logoutButton.isDisplayed();
     }
 
+    public void clickOnLogout() {
+        wait.until(ExpectedConditions.visibilityOf(this.logoutButton));
+        this.logoutButton.click();
+    }
 }
