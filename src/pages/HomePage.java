@@ -4,10 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import util.Util;
 
 public class HomePage extends BasePage{
-    private Util util = new Util();
 
     @FindBy (xpath = "//div[@class='login-btn']")
     private WebElement loginButton;
@@ -16,7 +14,7 @@ public class HomePage extends BasePage{
     private WebElement logoutButton;
 
     @FindBy(xpath = "//div[@class='register-btn']/a")
-    private WebElement registerbtn;
+    private WebElement registerBtn;
 
     public HomePage(){
         super();
@@ -31,8 +29,13 @@ public class HomePage extends BasePage{
         this.loginButton.click();
     }
 
-    public void openRegisterModal(String url){
-        util.navigateToUrl(url);
-        registerbtn.click();
+    public void openRegisterModal(){
+        registerBtn.click();
     }
+
+    public boolean logoutBtnAppears(){
+        wait.until(ExpectedConditions.visibilityOf(logoutButton));
+        return logoutButton.isDisplayed();
+    }
+
 }

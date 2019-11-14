@@ -17,26 +17,29 @@ public class RegisterModal extends BasePage {
     @FindBy(xpath = "//input[@value='Register']")
     private WebElement registerBtn;
 
-    void setUserNameField() {
-        userNameField.sendKeys(System.getenv("USERNAME"));
+    @FindBy(xpath = "//div[@id='basic-navbar-nav']/div/div/a")
+    private WebElement logoutBtn;
+
+    private void setUserNameField(String username) {
+        userNameField.sendKeys(username);
     }
 
-    void setEmailField() {
-        emailField.sendKeys(System.getenv("EMAIL"));
+    private void setEmailField(String mail) {
+        emailField.sendKeys(mail);
     }
 
-    void setPasswordField() {
-        passwordField.sendKeys(System.getenv("PASSWORD"));
+    private void setPasswordField(String pwd) {
+        passwordField.sendKeys(pwd);
     }
 
-    void clickRegisterBtn(){
+    private void clickRegisterBtn(){
         registerBtn.click();
     }
 
-    public void doRegister(){
-        setUserNameField();
-        setEmailField();
-        setPasswordField();
+    public void doRegister(String username, String mail, String pwd){
+        setUserNameField(username);
+        setEmailField(mail);
+        setPasswordField(pwd);
         clickRegisterBtn();
     }
 }
