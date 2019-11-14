@@ -7,19 +7,21 @@ import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import pages.LoginModal;
 import util.Driver;
+import util.Util;
 
 public class TestHomeNavigation {
-    WebDriver driver = Driver.getInstance();
+    String homeUrl = "http://localhost:3000";
     String username;
     String password;
     HomePage home;
     LoginModal loginModal;
+    Util util = new Util();
 
     @BeforeEach
     public void setUp(){
         home = new HomePage();
         loginModal = new LoginModal();
-        driver.get("http://localhost:3000");
+        util.navigateToUrl(homeUrl);
     }
 
     @Test
@@ -32,9 +34,13 @@ public class TestHomeNavigation {
 
     @Test
     public void invalidCredentials(){
-        username = "cool";
-        password = "canvas";
         home.clickOnLogin();
-        loginModal.doLogin(username, password);
+        loginModal.doLogin("cool", "canvas");
+    }
+
+    @Test
+    public void emptyCredentials(){
+        home.clickOnLogin();
+        loginModal.doLogin("", "");
     }
 }

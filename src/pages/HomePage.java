@@ -16,10 +16,6 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//div[@class='register-btn']/a")
     private WebElement registerBtn;
 
-    public HomePage(){
-        super();
-    }
-
     public void clickElement(By locator){
         getClickable(locator).click();
     }

@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -13,6 +14,9 @@ public class LoginModal extends BasePage{
 
     @FindBy (xpath = "//div[@class='form-container']/form/input[@class='form_input' and @type='password']")
     private WebElement passwordField;
+
+    @FindBy (xpath = "//[@id='content-auth']/form[@class='container']/div[@class='errorMsg']")
+    private WebDriver errorMessage;
 
     public LoginModal(){
         super();
