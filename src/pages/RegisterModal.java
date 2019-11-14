@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class RegisterModal extends BasePage {
@@ -22,12 +21,15 @@ public class RegisterModal extends BasePage {
     @FindBy(id = "container")
     private WebElement registerModalWindow;
 
+    int increment = 0;
+
     void setUserNameField() {
-        userNameField.sendKeys(System.getenv("USERNAME"));
+        increment++;
+        userNameField.sendKeys(System.getenv("USERNAME") + increment);
     }
 
     void setEmailField() {
-        emailField.sendKeys(System.getenv("EMAIL"));
+        emailField.sendKeys(increment + System.getenv("EMAIL"));
     }
 
     void setPasswordField() {
@@ -47,5 +49,9 @@ public class RegisterModal extends BasePage {
 
     void waitRegisterModalDisappear(){
         wait.until(ExpectedConditions.invisibilityOf(registerModalWindow));
+    }
+
+    public boolean registerModalDisappears(){
+        return registerModalWindow.isDisplayed();
     }
 }

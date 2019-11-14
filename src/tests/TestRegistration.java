@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pages.HomePage;
 import pages.RegisterModal;
@@ -16,7 +17,7 @@ public class TestRegistration {
         homePage.openRegisterModal(url);
         RegisterModal registerModal = new RegisterModal();
         registerModal.doRegister();
-
+        Assertions.assertFalse(registerModal.registerModalDisappears());
     }
 
     @AfterEach
