@@ -10,8 +10,8 @@ import util.Util;
 import util.Wait;
 
 public class BasePage {
-    WebDriver driver;
-    WebDriverWait wait;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
     private Util util = new Util();
 
     public BasePage(){
