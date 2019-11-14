@@ -27,6 +27,9 @@ public class RegisterModal extends BasePage {
 
     void setPasswordField() {
         passwordField.sendKeys(System.getenv("PASSWORD"));
+    }
 
+    void clickRegisterBtn(){
+        registerBtn.click();
     }
 }
