@@ -4,10 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import util.Util;
 
 public class HomePage extends BasePage{
-    private Util util = new Util();
 
     @FindBy (xpath = "//div[@class='login-btn']")
     private WebElement loginButton;
@@ -31,8 +29,7 @@ public class HomePage extends BasePage{
         this.loginButton.click();
     }
 
-    public void openRegisterModal(String url){
-        util.navigateToUrl(url);
+    public void openRegisterModal(){
         registerbtn.click();
     }
 }

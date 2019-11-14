@@ -33,12 +33,12 @@ public class TestRegistration {
     public void setUp(){
         homePage = new HomePage();
         registerModal = new RegisterModal();
-        driver.get("http://localhost:3000");
+        driver.get(url);
     }
 
     @Test
     void testRegistration(){
-        homePage.openRegisterModal(url);
+        homePage.openRegisterModal();
         registerModal.doRegister(usrnm, mail, pwd);
         Assertions.assertFalse(registerModal.registerModalDisappears());
     }
