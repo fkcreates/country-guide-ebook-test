@@ -43,6 +43,7 @@ class TestRegistration {
         pwd = System.getenv("PASSWORD");
         homePage.openRegisterModal();
         registerModal.doRegister(usrnm, mail, pwd);
+        registerModal.waitRegisterModalDisappear();
         Assertions.assertFalse(registerModal.registerModalDisappears());
     }
 

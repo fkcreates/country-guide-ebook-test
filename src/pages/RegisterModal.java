@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class RegisterModal extends BasePage {
 
@@ -41,6 +42,10 @@ public class RegisterModal extends BasePage {
         setEmailField(mail);
         setPasswordField(pwd);
         clickRegisterBtn();
+    }
+
+    public void waitRegisterModalDisappear(){
+        wait.until(ExpectedConditions.invisibilityOf(registerModalWindow));
     }
 
     public boolean registerModalDisappears(){
