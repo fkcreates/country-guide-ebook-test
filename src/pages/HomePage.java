@@ -31,11 +31,14 @@ public class HomePage extends BasePage{
 
     public boolean logoutBtnAppears(){
         wait.until(ExpectedConditions.visibilityOf(this.logoutButton));
+        System.out.println(this.logoutButton.isDisplayed());
         return this.logoutButton.isDisplayed();
     }
 
     public void clickOnLogout() {
-        wait.until(ExpectedConditions.visibilityOf(this.logoutButton));
-        this.logoutButton.click();
+        WebElement logout = driver.findElement(By.xpath("//div[@id='basic-navbar-nav']/div[@class='ml-auto navbar-nav']/div/a[@class='nav-link']"));
+        wait.until(ExpectedConditions.visibilityOf(logout));
+        logout.click();
     }
+
 }
