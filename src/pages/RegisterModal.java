@@ -16,4 +16,6 @@ public class RegisterModal extends BasePage {
 
     @FindBy(xpath = "//input[@value='register']")
     private WebElement registerBtn;
+
+
 }
