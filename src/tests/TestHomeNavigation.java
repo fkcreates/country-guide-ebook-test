@@ -7,19 +7,21 @@ import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import pages.LoginModal;
 import util.Driver;
+import util.Util;
 
 public class TestHomeNavigation {
-    WebDriver driver = Driver.getInstance();
+    String homeUrl = "http://localhost:3000";
     String username;
     String password;
     HomePage home;
     LoginModal loginModal;
+    Util util = new Util();
 
     @BeforeEach
     public void setUp(){
         home = new HomePage();
         loginModal = new LoginModal();
-        driver.get("http://localhost:3000");
+        util.navigateToUrl(homeUrl);
     }
 
     @Test
