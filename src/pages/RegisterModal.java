@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.Random;
+
 public class RegisterModal extends BasePage {
 
     @FindBy(xpath = "//input[@name='userName']")
@@ -21,10 +23,10 @@ public class RegisterModal extends BasePage {
     @FindBy(id = "container")
     private WebElement registerModalWindow;
 
-    int increment = 0;
+    Random random = new Random();
+    int increment = random.nextInt(10000);
 
     void setUserNameField() {
-        increment++;
         userNameField.sendKeys(System.getenv("USERNAME") + increment);
     }
 
