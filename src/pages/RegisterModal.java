@@ -2,9 +2,6 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.Random;
 
 public class RegisterModal extends BasePage {
 
@@ -23,34 +20,27 @@ public class RegisterModal extends BasePage {
     @FindBy(id = "container")
     private WebElement registerModalWindow;
 
-    Random random = new Random();
-    int increment = random.nextInt(10000);
-
-    void setUserNameField() {
-        userNameField.sendKeys(System.getenv("USERNAME") + increment);
+    private void setUserNameField(String username) {
+        userNameField.sendKeys(username);
     }
 
-    void setEmailField() {
-        emailField.sendKeys(increment + System.getenv("EMAIL"));
+    private void setEmailField(String mail) {
+        emailField.sendKeys(mail);
     }
 
-    void setPasswordField() {
-        passwordField.sendKeys(System.getenv("PASSWORD"));
+    private void setPasswordField(String pwd) {
+        passwordField.sendKeys(pwd);
     }
 
-    void clickRegisterBtn(){
+    private void clickRegisterBtn(){
         registerBtn.click();
     }
 
-    public void doRegister(){
-        setUserNameField();
-        setEmailField();
-        setPasswordField();
+    public void doRegister(String username, String mail, String pwd){
+        setUserNameField(username);
+        setEmailField(mail);
+        setPasswordField(pwd);
         clickRegisterBtn();
-    }
-
-    void waitRegisterModalDisappear(){
-        wait.until(ExpectedConditions.invisibilityOf(registerModalWindow));
     }
 
     public boolean registerModalDisappears(){
