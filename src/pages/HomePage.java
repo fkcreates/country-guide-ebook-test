@@ -10,7 +10,7 @@ public class HomePage extends BasePage{
     @FindBy (xpath = "//div[@class='login-btn']")
     private WebElement loginButton;
 
-    @FindBy (xpath = "//[@id='basic-navbar-nav']/div[@class='ml-auto-navbar']/div")
+    @FindBy (xpath = "//[@id='basic-navbar-nav']/div[@class='ml-auto navbar-nav']/div/a[@class='nav-link']")
     private WebElement logoutButton;
 
     @FindBy(xpath = "//div[@class='register-btn']/a")
