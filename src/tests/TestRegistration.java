@@ -4,7 +4,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import pages.RegisterModal;
 import util.Util;
@@ -34,6 +33,11 @@ class TestRegistration {
         util.navigateToUrl(url);
     }
 
+    @AfterEach
+    void teardown(){
+        util.tearDown();
+    }
+
     @Test
     void testRegistration(){
         usrnm = System.getenv("USERNAME") + increment;
@@ -41,12 +45,6 @@ class TestRegistration {
         pwd = System.getenv("PASSWORD");
         homePage.openRegisterModal();
         registerModal.doRegister(usrnm, mail, pwd);
-        registerModal.waitRegisterModalDisappear();
-        Assertions.assertTrue(registerModal.registerModalDisappears());
-    }
-
-    @AfterEach
-    void teardown(){
-        util.tearDown();
+        Assertions.assertTrue(homePage.logoutBtnAppears());
     }
 }

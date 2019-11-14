@@ -14,7 +14,7 @@ public class HomePage extends BasePage{
     private WebElement logoutButton;
 
     @FindBy(xpath = "//div[@class='register-btn']/a")
-    private WebElement registerbtn;
+    private WebElement registerBtn;
 
     public HomePage(){
         super();
@@ -30,6 +30,12 @@ public class HomePage extends BasePage{
     }
 
     public void openRegisterModal(){
-        registerbtn.click();
+        registerBtn.click();
     }
+
+    public boolean logoutBtnAppears(){
+        wait.until(ExpectedConditions.visibilityOf(logoutButton));
+        return logoutButton.isDisplayed();
+    }
+
 }
