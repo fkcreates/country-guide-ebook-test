@@ -1,13 +1,10 @@
 package util;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
-
 public class Wait extends WebDriverWait {
-    static WebDriver driver = (WebDriver) Driver.getInstance();
+    static WebDriver driver = Driver.getInstance();
     private static Wait single_instance = null;
 
     private Wait(WebDriver driver, long timeOutInSeconds) {
