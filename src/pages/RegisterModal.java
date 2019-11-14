@@ -18,7 +18,7 @@ public class RegisterModal extends BasePage {
     private WebElement registerBtn;
 
     void setUserNameField() {
-
+        userNameField.sendKeys(System.getenv("USERNAME"));
     }
 
     void setEmailField() {
