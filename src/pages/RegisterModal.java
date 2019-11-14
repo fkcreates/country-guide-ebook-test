@@ -22,7 +22,7 @@ public class RegisterModal extends BasePage {
     }
 
     void setEmailField() {
-
+        emailField.sendKeys(System.getenv("EMAIL"));
     }
 
     void setPasswordField() {
