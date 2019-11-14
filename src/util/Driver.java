@@ -16,11 +16,4 @@ public class Driver {
         return driver;
     }
 
-    public void navigateToUrl(String url) {
-        driver.get(url);
-    }
-
-    public void tearDown(){
-        driver.quit();
-    }
 }
