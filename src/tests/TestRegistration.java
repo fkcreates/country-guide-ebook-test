@@ -5,12 +5,13 @@ import pages.HomePage;
 
 public class TestRegistration {
 
-    String url = "";
+    String url = "http://localhost:3000/";
 
     @Test
     void testRegistration(){
         HomePage homePage = new HomePage();
-        homePage.openRegisterModal();
+        homePage.openRegisterModal(url);
+
 
     }
 }
