@@ -11,4 +11,12 @@ public class Util {
         WebElement clickable = driver.findElement(locator);
         return clickable;
     }
+
+    public void navigateToUrl(String url) {
+        driver.get(url);
+    }
+
+    public void tearDown(){
+        driver.quit();
+    }
 }
