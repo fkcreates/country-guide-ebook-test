@@ -29,6 +29,7 @@ public class TestHomeNavigation {
         password = System.getenv("PASSWORD");
         home.clickOnLogin();
         loginModal.doLogin(username, password);
+        home.waitForLoginModalToDisappear();
         Assertions.assertTrue(home.logoutBtnAppears());
         home.clickOnLogout();
     }

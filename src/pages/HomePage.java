@@ -31,7 +31,6 @@ public class HomePage extends BasePage{
 
     public boolean logoutBtnAppears(){
         wait.until(ExpectedConditions.visibilityOf(this.logoutButton));
-        System.out.println(this.logoutButton.isDisplayed());
         return this.logoutButton.isDisplayed();
     }
 
@@ -41,4 +40,8 @@ public class HomePage extends BasePage{
         logout.click();
     }
 
+    public void waitForLoginModalToDisappear(){
+        WebElement loginModal = driver.findElement(By.xpath("//div[@id='content-auth']"));
+        wait.until(ExpectedConditions.invisibilityOf(loginModal));
+    }
 }
