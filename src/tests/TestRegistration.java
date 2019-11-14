@@ -13,7 +13,7 @@ public class TestRegistration {
         HomePage homePage = new HomePage();
         homePage.openRegisterModal(url);
         RegisterModal registerModal = new RegisterModal();
-
+        registerModal.doRegister();
 
     }
 }

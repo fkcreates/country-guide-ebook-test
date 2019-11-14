@@ -32,4 +32,11 @@ public class RegisterModal extends BasePage {
     void clickRegisterBtn(){
         registerBtn.click();
     }
+
+    public void doRegister(){
+        setUserNameField();
+        setEmailField();
+        setPasswordField();
+        clickRegisterBtn();
+    }
 }
