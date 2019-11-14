@@ -7,14 +7,12 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import pages.RegisterModal;
-import util.Driver;
 import util.Util;
 
 import java.util.Random;
 
 class TestRegistration {
     private Util util = new Util();
-    private WebDriver driver = Driver.getInstance();
 
     private String url = "http://localhost:3000/";
 
@@ -33,7 +31,7 @@ class TestRegistration {
     void setUp(){
         homePage = new HomePage();
         registerModal = new RegisterModal();
-        driver.get(url);
+        util.navigateToUrl(url);
     }
 
     @Test
