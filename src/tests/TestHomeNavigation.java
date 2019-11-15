@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebElement;
 import pages.HomePage;
 import pages.LoginModal;
 import util.Util;
@@ -38,11 +39,18 @@ public class TestHomeNavigation {
     public void invalidCredentials(){
         home.clickOnLogin();
         loginModal.doLogin("cool", "canvas");
+        WebElement error = loginModal.getErrorForInvalidPass();
+        Assertions.assertTrue(loginModal.isErrorDisplayed(error), "Error message for invalid credentials is not displayed");
     }
 
     @Test
     public void emptyCredentials(){
         home.clickOnLogin();
         loginModal.doLogin("", "");
+        WebElement errorUser = loginModal.getErrorForEmptyUser();
+        WebElement errorPass = loginModal.getErrorForEmptyPass();
+        Assertions.assertTrue(loginModal.isErrorDisplayed(errorUser), "Empty user error message is not displayed");
+        Assertions.assertTrue(loginModal.isErrorDisplayed(errorPass), "Empty pass error message is not displayed");
+
     }
 }
